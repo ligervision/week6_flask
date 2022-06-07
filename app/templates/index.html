@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Kekambas Blog | Home {% endblock %}
+
+{% block content %}
+
+<h1>Hello {{ user.username }}, how are you?</h1>
+
+        <h4>My favorite colors:</h4>
+        <ul>
+            {% for color in colors %}
+                {% if color == 'blue' %}
+                    <li> {{ color.upper() }}</li>
+                {% else %}
+                    <li>{{ color }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        
+{% endblock %}
