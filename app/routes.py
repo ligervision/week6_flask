@@ -1,5 +1,5 @@
 from app import app
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash
 from app.forms import SignUpForm
 
 #  routes -- How each endpoint should run
@@ -24,11 +24,15 @@ def signup():
         username = form.username.data
         password = form.password.data
         print(email, username, password)
+        # if username in {'abc', 'aaa'}:
+        #     flash('That username already exists', 'danger')
+        #     return redirect(url_for('signup'))
+        
         # Add the user to the database
 
         # Show message of success/failure
-
+        flash('You have successfully signed up!', 'success')
         # redirect back to the homepage
         return redirect(url_for('index'))
-        
+
     return render_template('signup.html', form=form)
